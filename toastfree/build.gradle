@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace = "com.example.toastfree"
     compileSdkVersion 33
     buildToolsVersion "30.0.2"
 
@@ -22,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
 
@@ -47,7 +52,7 @@ afterEvaluate {
         publications {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
-                from components.release // 表示发布 release（jitpack 都不会使用到）
+               // from components.release // 表示发布 release（jitpack 都不会使用到）
                 groupId = 'com.easemob.uniapp' //groupId 随便取 , 这个是依赖库的组 id
                 artifactId = 'toastfree'  //artifactId 随便取 , 依赖库的名称（jitpack 都不会使用到）
                 version = '0.0.3' // 当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
